@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE facelet-taglib PUBLIC
+  "-//Sun Microsystems, Inc.//DTD Facelet Taglib 1.0//EN"
+  "http://java.sun.com/dtd/facelet-taglib_1_0.dtd">
+<facelet-taglib>
+    <namespace>http://wintec.ac.nz/facelets</namespace>
+    <tag>
+	<tag-name>label</tag-name>
+	<source>tags/nz/ac/wintec/label.xhtml</source>
+    </tag>
+</facelet-taglib>

@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <h:form id="generationSettings"> 
+
+            <h:panelGrid columns="2">
+
+                <h:outputText id="numberOfWeeksOutput" value="generate meals for #{settingsController.numberOfWeeks} weeks:" style="margin-right: 10px;"/>  
+                <h:panelGroup>
+                    <h:inputHidden id="numberOfWeeks" value="#{settingsController.numberOfWeeks}" />  
+                    <p:slider maxValue="52" for="numberOfWeeks" display="numberOfWeeksOutput" style="width:600px;" displayTemplate="generate meals for {value} weeks"/>  
+                </h:panelGroup>
+                
+
+                <p:outputLabel for="maxMinutes" value="maximum time in minutes of one evolution process" />
+                <p:inputText id="maxMinutes" value="#{settingsController.maxMinutes}" />
+
+                <p:outputLabel for="generationsNumber" value="number of generations" />
+                <p:inputText id="generationsNumber" value="#{settingsController.generationsNumber}" />
+
+                <p:outputLabel for="populationSize" value="size of population (number of chromosomes)" />
+                <p:inputText id="populationSize" value="#{settingsController.populationSize}" />
+
+                <p:outputLabel for="crossoverProbability" value="crossover probability" />
+                <p:inputText id="crossoverProbability" value="#{settingsController.crossoverProbability}" />
+
+                <p:outputLabel for="mutationProbability" value="mutation probability" />
+                <p:inputText id="mutationProbability" value="#{settingsController.mutationProbability}" />
+
+                <p:outputLabel for="dismissOldGenerations" value="dismiss old generations (info may not be available)" />  
+                <p:selectBooleanCheckbox id="dismissOldGenerations" value="#{settingsController.dismissOldGenerations}" />  
+                <!--
+                                <h:outputText id="geneClassOutput" value="item to be the gene:" style="margin-right: 10px;"></h:outputText>
+                                <p:selectOneMenu value="#{settingsController.geneClass}">  
+                                    <f:selectItem itemLabel="Meal" itemValue="Meal" /> 
+                                    <f:selectItem itemLabel="Course" itemValue="Course" /> 
+                                </p:selectOneMenu>  
+                -->
+                
+                <p:commandButton icon="ui-icon-disk" value="save" update=":growl, :tabView" actionListener="#{settingsController.save}" />
+
+            </h:panelGrid>
+
+
+        </h:form>
+    </ui:composition>
+</html>
+

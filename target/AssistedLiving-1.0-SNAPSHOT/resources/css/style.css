@@ -1,0 +1,74 @@
+.red{
+    background: #E8806C;
+
+}
+
+.green{
+    background:#67E890;
+}
+
+.yellow{
+    background:#FFF47E;
+}
+
+.blue{
+    background:#7EA4FF;
+}
+
+
+.magenta{
+    background:#E89C54;
+}
+
+.weiss{
+    background:white;
+}
+
+.ui-panelgrid td, tr {
+    border-style: none !important;
+
+}
+
+#logo_container{
+    height: 100px;
+    width: 100%;
+    padding: 0px;
+
+    background-size: 100% 100%; 
+}
+/*
+.ui-panelgrid{
+        width:100%;
+}
+
+.ui-resizable{
+        width:100%;
+}
+*/
+.ui-editor{
+    width: 100% !important;
+
+}
+
+#emailContent{
+    width:100%;
+}
+
+h2{
+    font-size: 20px;
+    padding-left:30px;
+
+    margin:0;
+    margin-bottom:10px;
+}
+
+#logo_text{
+    position: absolute;
+    color: white;
+    padding-top: 63px;
+    z-index: 2;
+}
+
+.fileupload-content{
+    min-height: 150px;
+}

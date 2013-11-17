@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CourseViewDlg" widgetVar="CourseViewDialog" modal="true" resizable="false" appendToBody="true" header="#{myBundle.ViewCourseTitle}">
+
+            <h:form id="CourseViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{courseController.selected != null}">
+
+                        <h:outputText value="#{myBundle.ViewCourseLabel_id}"/>
+                        <h:outputText value="#{courseController.selected.id}" title="#{myBundle.ViewCourseTitle_id}"/>
+
+                        <h:outputText value="#{myBundle.ViewCourseLabel_name}"/>
+                        <h:outputText value="#{courseController.selected.name}" title="#{myBundle.ViewCourseTitle_name}"/>
+
+                        <h:outputText value="#{myBundle.ViewCourseLabel_quantity}"/>
+                        <h:outputText value="#{courseController.selected.quantitiesString}" title="#{myBundle.ViewCourseTitle_quantity}"/>
+
+                        <h:outputText value="#{myBundle.ViewCourseLabel_ingredient}"/>
+                        <h:outputText value="#{courseController.selected.ingredientString}" title="#{myBundle.ViewCourseTitle_ingredient}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{myBundle.Close}" onclick="CourseViewDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

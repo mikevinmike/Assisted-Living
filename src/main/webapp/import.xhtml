@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            Import
+        </ui:define>
+
+        <ui:define name="body" >
+
+            <h:form enctype="multipart/form-data">  
+                
+                <p:commandButton style="float:right;" value="Reset Data" update=":growl" action="#{fileUploadController.resetData()}" />
+ 
+                <h3>Upload all Import Files using the function below, you can drag and drop the files. Make sure all files contain the name of their purpose (e.g. restriction, course, ingredient).</h3>
+                
+                <p:fileUpload fileUploadListener="#{fileUploadController.handleIngredientsUpload}" mode="advanced" dragDropSupport="true"  
+                              multiple="true" update="messages" sizeLimit="100000" allowTypes="/(\.|\/)(txt)$/" />  
+
+                <p:growl id="messages" showDetail="true"/> 
+
+                
+                
+            </h:form>
+
+        </ui:define>
+
+
+    </ui:composition>
+
+</html>

@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:wintec="http://wintec.ac.nz/facelets"
+      >
+
+    <ui:composition>
+
+        <h:form id="result"> 
+
+            <h:panelGrid columns="1" style="margin-bottom:10px"> 
+
+                <wintec:label value="Details"></wintec:label>
+
+                <h:panelGrid columns="2" style="margin-bottom:10px">
+                <p:outputLabel for="location" style="font-weight: bold;" value="Location: " />
+                <h:outputText id="location" value="Generation ##{evolutionController.result.generationIndex+1}, Chromosome ##{evolutionController.result.chromosomeIndex+1}" />
+               
+                <p:outputLabel for="costs" style="font-weight: bold;" value="Costs: " />
+                <h:outputText id="costs" value="$ #{evolutionController.result.fitness}" />
+                </h:panelGrid>
+                
+                <wintec:label for="resultGeneList" value="Meal Plan"></wintec:label>
+
+                <p:dataTable id="resultGeneList" value="" rendered="#{not empty evolutionController.result}">
+
+                    <c:forEach items="#{evolutionController.result.chromosome.geneList}" var="day" varStatus="dayStatus">
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="day #{dayStatus.index + 1}" />
+                            </f:facet>
+
+                            <c:set var="mealIndex" value="0"/>
+                            <c:forEach items="#{evolutionController.result.chromosome.geneList.get(dayStatus.index)}" var="meal" varStatus="mealStatus">
+                                <div>
+                                    <h:outputText value="#{meal.type}" style="font-weight: bold;" /> 
+                                </div>
+
+
+                                <c:forEach items="#{evolutionController.result.chromosome.geneList.get(dayStatus.index).get(mealStatus.index).genes}" var="course">
+                                    <div>
+                                        <h:outputText value="#{course}" /> 
+                                    </div>
+                                </c:forEach>
+                                <div style="margin-bottom: 10px;" />
+                            </c:forEach>
+
+                        </p:column>
+                    </c:forEach>                    
+                </p:dataTable>
+
+            </h:panelGrid>
+
+
+        </h:form>
+
+    </ui:composition>
+</html>
+

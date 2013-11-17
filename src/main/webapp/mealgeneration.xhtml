@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <h:form id="mealGeneration"> 
+
+            <h:panelGrid columns="6" style="margin-bottom:10px"> 
+
+                <h:outputLabel for="desiredCosts" value="desired costs" style="font-weight: bold;" />
+                <p:inputText id="desiredCosts" value="#{evolutionController.desiredCosts}" />
+                    
+                <p:commandButton icon="ui-icon-plus" value="Generate One" update=":growl, :tabView" action="#{evolutionController.createNewGeneration()}" />
+
+                <p:commandButton icon="ui-icon-play" value="Generate All" update=":growl, :tabView" action="#{evolutionController.runEvolution()}" onclick="generationsProgressBar.start(); timeProgressBar.start(); freeMemoryProgressBar.start();" />
+
+                <p:commandButton icon="ui-icon-pause" value="Stop Process" update=":growl, :tabView" action="#{evolutionController.stopEvolution()}" async="true" />
+
+                <p:commandButton icon="ui-icon-cancel" value="Reset Generations" update=":growl, :tabView" action="#{evolutionController.resetGenerations()}" />
+
+                </h:panelGrid>
+            
+            <h:outputLabel for="generationsProgressBar" value="generation progress" style="font-weight: bold;" />
+            <p:progressBar id="generationsProgressBar" widgetVar="generationsProgressBar" ajax="true" interval="1000" value="#{evolutionController.evolutionProgress}" labelTemplate="{value}%" styleClass="animated" style="margin-bottom: 10px;" />
+           
+            <h:outputLabel for="timeProgressBar" value="time progress" style="font-weight: bold;" />
+            <p:progressBar id="timeProgressBar" widgetVar="timeProgressBar" ajax="true" interval="1000" value="#{evolutionController.timeProgress}" labelTemplate="{value}%" styleClass="animated" style="margin-bottom: 10px;" />
+                       
+            <h:outputLabel for="freeMemoryProgressBar" value="free memory progress" style="font-weight: bold;" />
+            <p:progressBar id="freeMemoryProgressBar" widgetVar="freeMemoryProgressBar" ajax="true" interval="1000" value="#{evolutionController.freeMemoryProgress}" labelTemplate="{value}%" styleClass="animated" style="margin-bottom: 10px;" />
+            
+            <p:dataTable id="generationList" value="#{evolutionController.allGenerations}" var="generation"
+                         rowIndexVar="index" 
+                         rendered="#{evolutionController.numberOfGenerations > 0}"
+                         rowKey="#{generation}"
+                         paginator="true"
+                         first="#{evolutionController.numberOfGenerations-1}"
+                         paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {JumpToPageDropdown}"
+                         rows="1"
+                         paginatorPosition="top"
+                         widgetVar="generationList"
+                         >
+                <f:facet name="header">  
+                    Generations 
+                </f:facet> 
+                <p:column>
+                      
+
+                    <p:dataTable id="chromosomeList" value="#{generation.population.chromosomes}" var="chromosome"
+                                 rowIndexVar="cIndex"
+                                 rowKey="#{chromosome}"
+                                 paginator="true"
+                                 rows="1"
+                                 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {JumpToPageDropdown}"
+                                 paginatorPosition="bottom"
+                                 widgetVar="chromosomeList"
+                                 >
+                         <p:ajax event="page" onstart="#{evolutionController.setActiveGeneration(generation)}" update=""/>
+
+                        <f:facet name="header">  
+                            Meal Plans 
+                        </f:facet> 
+                         
+                        <p:column>
+                            <p:dataTable id="geneList" value="" rows="1">
+                                
+                                <p:ajax event="page" onstart="#{evolutionController.setActiveChromosome(chromosome)}" update=":tabView:generationInfo"/>
+                                
+                                <c:forEach items="#{not empty chromosome ? chromosome.geneList : evolutionController.generation.population.chromosomes.get(0).geneList}" var="day" varStatus="dayStatus">
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="day #{dayStatus.index + 1}" />
+                                        </f:facet>
+
+                                        <c:set var="mealIndex" value="0"/>
+                                        <c:forEach items="#{not empty chromosome ? chromosome.geneList.get(dayStatus.index) : evolutionController.generation.population.chromosomes.get(0).geneList.get(dayStatus.index)}" var="meal" varStatus="mealStatus">
+                                            <div>
+                                                <h:outputText value="#{meal.type}" style="font-weight: bold;" /> 
+                                            </div>
+
+                                            <c:forEach items="#{not empty chromosome ? chromosome.geneList.get(dayStatus.index).get(mealStatus.index).genes : evolutionController.generation.population.chromosomes.get(0).geneList.get(dayStatus.index).get(mealStatus.index).genes}" var="course">
+                                                <div>
+                                                    <h:outputText value="#{course}" /> 
+                                                </div>
+                                            </c:forEach>
+                                            <div style="margin-bottom: 10px;" />
+                                        </c:forEach>
+
+                                    </p:column>
+                                </c:forEach>                    
+                            </p:dataTable>
+                        </p:column>
+                    </p:dataTable>
+
+                </p:column>
+
+            </p:dataTable>
+
+        </h:form>
+    </ui:composition>
+</html>
+

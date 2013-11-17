@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CourseCreateDlg" widgetVar="CourseCreateDialog" modal="true" resizable="false" appendToBody="true" header="#{myBundle.CreateCourseTitle}">
+
+            <h:form id="CourseCreateForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{courseController.selected != null}">
+
+                        <p:outputLabel value="#{myBundle.CreateCourseLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{courseController.selected.id}" title="#{myBundle.CreateCourseTitle_id}" />
+
+                        <p:outputLabel value="#{myBundle.CreateCourseLabel_name}" for="name" />
+                        <p:inputText id="name" value="#{courseController.selected.name}" title="#{myBundle.CreateCourseTitle_name}" />
+
+                        <p:outputLabel value="#{myBundle.CreateCourseLabel_quantity}" for="quantity" />
+                        <p:inputText id="quantity" value="#{courseController.selected.quantitiesString}" title="#{myBundle.CreateCourseTitle_quantity}" />
+
+                        <p:outputLabel value="#{myBundle.CreateCourseLabel_ingredient}" for="ingredient" />
+                        <p:selectOneMenu id="ingredient" value="#{courseController.selected.ingredientString}" requiredMessage="#{myBundle.CreateCourseTitle_ingredient}">
+                            <f:selectItem itemLabel="#{myBundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{ingredientController.items}"
+                                           var="ingredientItem"
+                                           itemValue="#{ingredientItem}"
+                                           itemLabel="#{ingredientItem.name}"
+                                           />
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{courseController.saveNew}" value="#{myBundle.Save}" update="display,:CourseListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,CourseCreateDialog);"/>
+                    <p:commandButton value="#{myBundle.Cancel}" onclick="CourseCreateDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

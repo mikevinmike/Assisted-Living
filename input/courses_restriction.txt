@@ -1,0 +1,64 @@
+Spaghetti bolognaise, dinner, 2
+Orange juice, breakfast, 1
+Blackcurrent juice, breakfast, 1
+Toast, breakfast, 2
+Porridge, breakfast, 2
+Cornflakes, breakfast, 2
+Muesli, breakfast, 2
+Cheese sandwich, lunch, 1
+Beans on toast, lunch, 1
+Ham sandwich, lunch, 1
+Noodles, lunch, 1
+Apple, lunch, 3
+Apple, dinner, 3
+Banana, lunch, 3
+Banana, dinner, 3
+Orange, lunch, 3
+Orange, dinner, 3
+Pear, lunch, 3
+Pear, dinner, 3
+Yoghurt, lunch, 3
+Yoghurt, dinner, 3
+Biscuits, lunch, 2
+Cake, lunch, 2
+Icecream, dinner, 3
+Chocolate bavarian, dinner, 3  
+Sausages, dinner, 2
+Steak, dinner, 2
+Tomato soup, lunch, 1
+Pumpkin soup, lunch, 1
+Onion soup, lunch, 1
+Pea and ham soup, lunch, 1
+Chicken soup, lunch, 1
+Mushroom soup, lunch, 1
+Tomato soup, dinner, 1
+Pumpkin soup, dinner, 1
+Onion soup, dinner, 1
+Pea and ham soup, dinner, 1
+Chicken soup, dinner, 1
+Mushroom soup, dinner, 1
+Bacon and eggs, dinner, 2
+Bacon and eggs, lunch, 1
+Icecream, dinner, 3
+Peaches and cream, dinner, 3
+Coffee, dinner, 3
+Coffee, breakfast, 1
+Icecream, lunch, 3
+Milo, breakfast, 1
+Milk, breakfast, 1
+Cocopops, breakfast, 2
+Pancakes, breakfast, 2
+Fish, dinner, 2
+French Toast, breakfast, 2
+Schnitzel, lunch, 2
+Schnitzel, dinner, 2
+Fish and Chips, lunch, 2
+Fish and Chips, dinner, 2
+Pizza Napolitana, lunch, 2
+Pizza Napolitana, dinner, 2
+Lasagne, lunch, 1
+Lasagne, dinner, 2
+Fajita, dinner, 1
+Fajita, lunch, 2
+Gong Bao Chicken, lunch, 2
+Gong Bao Chicken, dinner, 2

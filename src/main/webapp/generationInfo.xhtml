@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:wintec="http://wintec.ac.nz/facelets"
+      >
+
+    <ui:composition>
+
+        <h:form id="generationInfo"> 
+
+            <h:panelGrid columns="1" style="margin-bottom:10px"> 
+
+                <h:panelGrid columns="2">
+                    <h:outputLabel for="numberActiveGeneration" value="Generation # " /> 
+                    <p:spinner id="numberActiveGeneration" value="#{evolutionController.numberActiveGeneration}"/>
+                    <h:outputLabel for="numberActiveChromosome" value="Chromosome # " /> 
+                    <p:spinner id="numberActiveChromosome" value="#{evolutionController.numberActiveChromosome}"/>
+                    <p:commandButton icon="ui-icon-disk" value="update" update=":growl, generationInfo" action="#{evolutionController.resetChartModels()}" />
+                </h:panelGrid>
+
+                <wintec:label for="chromosomeString" value="Chromosome String"></wintec:label>
+
+                <h:outputText id="chromosomeString" value="#{evolutionController.activeChromosome}" />
+
+                <wintec:label for="fitnessChart" value="Fitness of Chromosomes"></wintec:label>
+
+                <p:commandButton icon="ui-icon-image" id="fitnessChartBtn" value="Show Fitness Chart" type="button" />  
+
+                <p:pieChart id="fitnessChart" title="Fitness of chromosomes" value="#{evolutionController.fitnessPieModel}" showDataLabels="true" style="min-width: 700px; min-height:400px;" >
+                    <p:ajax event="itemSelect" listener="#{evolutionController.fitnessPieItemSelect}" update=":growl" />  
+                </p:pieChart>
+
+
+
+                <wintec:label for="resultChart" value="Results of Generations"></wintec:label>
+
+                <p:lineChart id="resultChart" title="Results of Generations" value="#{evolutionController.resultModel}" minX="0" maxX="#{evolutionController.numberOfGenerations}" showMarkers="false" legendPosition="ne" zoom="true" widgetVar="resultChart" style="min-width: 700px; min-height:400px;" extender="function ext() { this.cfg.axes.xaxis.tickOptions.formatString = '%d'; } ">
+                </p:lineChart> 
+                <p:commandButton type="button" value="zoom out" icon="ui-icon-zoomout" onclick="resultChart.resetZoom()"/>  
+
+            </h:panelGrid>
+
+
+        </h:form>
+
+    </ui:composition>
+</html>
+

@@ -1,0 +1,121 @@
+Cornflakes, cornflakes, 1
+Cornflakes, milk, 0.2
+Cornflakes, sugar, 1
+Orange juice, orange juice, 1
+Spaghetti bolognaise, mince, 1
+Spaghetti bolognaise, carrot, 1
+Spaghetti bolognaise, cheese, 1
+Spaghetti bolognaise, pasta, 2
+Spaghetti bolognaise, onion, 1
+Spaghetti bolognaise, carrot, 1
+Spaghetti bolognaise, garlic, 1
+Spaghetti bolognaise, frozen peas, 1
+Blackcurrent juice, blackcurrent juice, 1
+Toast, bread, 0.01
+Toast, margarine, 0.01
+Toast, jam, 0.01
+Porridge, oats, 0.05
+Porridge, salt, 0.001
+Porridge, milk, 0.1
+Cornflakes, milk, 0.1
+Cornflakes, cornflakes, 0.1
+Muesli, muesli, 0.05
+Cheese sandwich, bread, 0.02
+Cheese sandwich, margarine, 0.02
+Cheese sandwich, cheese, 0.05
+Cheese sandwich, lettuce, 0.05
+Beans on toast, beans, 1
+Beans on toast, bread, 0.01
+Ham sandwich, bread, 0.02
+Ham sandwich, margarine, 0.02
+Ham sandwich, ham, 0.2
+Ham sandwich, lettuce, 0.05
+Noodles, noodles, 1
+Apple, apple, 1
+Banana, banana, 1
+Orange, orange, 1
+Pear, pear, 1
+Yoghurt, yoghurt 1
+Icecream, icecream, 0.2
+Chocolate bavarian, chocolate bavarian, 0.25 
+Biscuits, biscuits, 0.2 
+Cake, cake, 0.2
+Sausages, sausages, 3
+Sausages, potatoes, 0.2
+Sausages, frozen beans, 0.2
+Sausages, carrot, 1
+Steak, steak, 0.25
+Steak, onion, 1
+Steak, carrot, 1
+Steak, frozen peas, 1
+Steak, potatoes, 0.2
+Tomato soup, tomato soup, 0.5
+Pumpkin soup, pumpkin soup, 0.5
+Onion soup, onion soup, 0.5
+Pea and ham soup, pea and ham soup, 0.5
+Chicken soup, chicken soup, 0.5
+Mushroom soup, mushroom soup, 0.5
+Bacon and eggs, bacon, 1
+Bacon and eggs, eggs, 1
+Icecream, icecream, 1
+Peaches and cream, tinned peaches, 1
+Peaches and cream, cream, 0.2
+Coffee, milk, 0.03
+Coffee, coffee, 0.02
+Coffee, sugar, 0.001
+Milo, milk, 0.03
+Milo, milo, .005
+Milo, sugar, 0.001
+Milk, milk, 0.2
+Cocopops, cocopops, 0.1
+Cocopops, milk, 0.2
+Pancakes, pancake mix, 1
+Pancakes, milk, 0.3
+Fish, fish, 0.2
+Fish, onion, 1
+Fish, carrot, 1
+Fish, frozen peas, 1
+Fish, potatoes, 0.2
+French Toast, bread, 1
+French Toast, bacon, 0.3
+French Toast, maple syrup, 0.2
+Schnitzel, beef, 1
+Schnitzel, eggs, 2
+Schnitzel, breadcrumbs, 0.5
+Schnitzel, fries, 1
+Fish and Chips, fish, 1
+Fish and Chips, fries, 1
+Pizza Napolitana, tomato, 2
+Pizza Napolitana, mozzarella cheese, 1
+Pizza Napolitana, sparkling mineral water, 1
+Pizza Napolitana, meal, 0.5
+Pizza Napolitana, yeast, 0.2
+Pizza Napolitana, salt, 0.1
+Lasagne, beef, 1
+Lasagne, pasta, 1
+Lasagne, milk, 1
+Lasagne, meal, 0.5
+Lasagne, butter, 0.25
+Lasagne, salt, 0.1
+Lasagne, herbs, 0.1
+Lasagne, onion, 1
+Lasagne, garlic, 0.5
+Fajita, chicken, 0.5
+Fajita, salad, 0.3
+Fajita, beans, 0.2
+Fajita, corn, 0.2
+Fajita, yoghurt, 0.1
+Fajita, salsa sauce, 0.1
+Fajita, capsicum, 0.2
+Gong Bao Chicken, chicken, 0.5
+Gong Bao Chicken, meal, 0.01
+Gong Bao Chicken, peanut, 0.2
+Gong Bao Chicken, onion, 2
+Gong Bao Chicken, garlic, 2
+Gong Bao Chicken, sugar, 0.2
+Gong Bao Chicken, white wine, 0.2
+Gong Bao Chicken, ginger, 0.05
+Gong Bao Chicken, soya sauce, 0.1
+Gong Bao Chicken, pepper, 0.05
+Gong Bao Chicken, chili, 0.01
+

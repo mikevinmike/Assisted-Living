@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RestrictionEditDlg" widgetVar="RestrictionEditDialog" modal="true" resizable="false" appendToBody="true" header="#{myBundle.EditRestrictionTitle}">
+
+            <h:form id="RestrictionEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" rendered="#{restrictionController.selected != null}">
+
+                        <h:outputLabel value="#{myBundle.EditRestrictionLabel_id}" for="id" />
+                        <h:outputText id="id" value="#{restrictionController.selected.id}" />
+
+                        <p:outputLabel value="#{myBundle.EditRestrictionLabel_meal}" for="meal" />
+                        <p:inputText id="meal" value="#{restrictionController.selected.meal}" title="#{myBundle.EditRestrictionTitle_meal}" />
+
+                        <p:outputLabel value="#{myBundle.EditRestrictionLabel_course}" for="course" />
+                        <p:selectOneMenu id="course" value="#{restrictionController.selected.course}" requiredMessage="#{myBundle.EditRestrictionTitle_course}">
+                            <f:selectItem itemLabel="#{myBundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{courseController.items}"
+                                           var="courseItem"
+                                           itemValue="#{courseItem}"
+                                           itemLabel="#{courseItem.name}"
+                                           />
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{myBundle.EditRestrictionLabel_order}" for="order" />
+                        <p:inputText id="order" value="#{restrictionController.selected.order}" title="#{myBundle.EditRestrictionTitle_order}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{restrictionController.save}" value="#{myBundle.Save}" update="display,:RestrictionListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,RestrictionEditDialog);"/>
+                    <p:commandButton value="#{myBundle.Cancel}" onclick="RestrictionEditDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>
